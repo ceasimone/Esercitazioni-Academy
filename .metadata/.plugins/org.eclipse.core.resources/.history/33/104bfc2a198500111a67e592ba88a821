@@ -1,0 +1,8 @@
+package esercizio5;
+
+public class Rectangle {
+	private base;
+	private altezza;
+	private List<Point2D> lista = new ArrayList<>();
+
+}

@@ -1,0 +1,27 @@
+package esercizio5;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Rectangle {
+	private double base;
+	private double altezza;
+	private List<Point2D> lista = new ArrayList<>();
+	
+
+	{
+		private Point2D punto = new Point2D();
+	}
+	
+	public Rectangle() {
+	}
+	
+	public Rectangle(double base, double altezza, int x, int y) {
+		this.base=base;
+		this.altezza=altezza;
+		punto.setX=x;
+		
+	}
+	
+
+}

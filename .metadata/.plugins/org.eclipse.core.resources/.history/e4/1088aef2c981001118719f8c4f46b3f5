@@ -1,0 +1,21 @@
+package esercizio5;
+
+public class TestGara {
+
+	public static void main(String[] args) {
+		
+		Pilota[] lista = new Pilota[5];
+		
+		lista[0]= new Pilota("Mario", "auto1", "scuderia1");
+		lista[1]= new Pilota("Luigi", "auto2", "scuderia2");
+		lista[2]= new Pilota("Mario", "auto1", "ferrari");
+		lista[3]= new Pilota("Mario", "auto1", "ferrari");
+		lista[4]= new Pilota("Mario", "auto1", "ferrari");
+		
+		Gara gara1 = new Gara("prima gara", lista);
+		
+		gara1.stampaPiloti();
+		
+	}
+
+}

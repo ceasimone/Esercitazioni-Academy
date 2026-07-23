@@ -1,0 +1,13 @@
+package esercizio6_7;
+
+public abstract class ContattoTelefonico {
+	private String numero;
+	private String nomeAbbonato;
+	private double bolletta;
+	
+	private static final double COSTO_AL_SECONDO= 0.01;
+	
+	public abstract void chiama();
+	
+
+}

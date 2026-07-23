@@ -1,0 +1,18 @@
+package esercizio3_4;
+
+public class Main {
+
+	public static void main(String[] args) {
+		MacchinettaCaffe m1 = new MacchinettaCaffe();
+		
+		m1.faiCaffe();
+		m1.faiCaffe();
+		m1.faiCaffe();
+		m1.caffeSenzaSvuotare();
+		m1.svuotaCassetto();
+		m1.faiCaffe();
+		m1.caffeSenzaSvuotare();
+		m1.mostraCaffeRealizzati();
+	}
+
+}

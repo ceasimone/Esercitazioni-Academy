@@ -1,0 +1,14 @@
+package esercizio2;
+
+public class TestCoppia {
+
+	public static void main(String[] args) {
+		Coppia<Integer> i1 = new Coppia<>();
+		
+		i1.salva(1, 2);
+		i1.prendiUno();
+		i1.prendiDue();
+
+	}
+
+}

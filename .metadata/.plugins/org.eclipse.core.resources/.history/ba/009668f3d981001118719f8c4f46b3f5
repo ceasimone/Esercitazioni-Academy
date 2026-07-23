@@ -1,0 +1,47 @@
+package esercizio6_7;
+
+public abstract class ContrattoTelefonico {
+	private String numero;
+	private String nomeAbbonato;
+	private double bolletta;
+	
+	private static final double COSTO_AL_SECONDO= 0.01;
+	
+	protected ContrattoTelefonico() {
+		this.setBolletta(0.0);
+	}
+	
+	protected ContrattoTelefonico(String numero, String nomeAbbonato) {
+		this.setNumero(numero);
+		this.setNomeAbbonato(nomeAbbonato);
+		this.setBolletta(0.0);
+	}
+	
+	public abstract void chiama(String numeroChiamato);
+
+	protected String getNumero() {
+		return numero;
+	}
+
+	protected void setNumero(String numero) {
+		this.numero = numero;
+	}
+
+	protected String getNomeAbbonato() {
+		return nomeAbbonato;
+	}
+
+	protected void setNomeAbbonato(String nomeAbbonato) {
+		this.nomeAbbonato = nomeAbbonato;
+	}
+
+	protected double getBolletta() {
+		return bolletta;
+	}
+
+	protected void setBolletta(double bolletta) {
+		this.bolletta = bolletta;
+	}
+	
+
+}

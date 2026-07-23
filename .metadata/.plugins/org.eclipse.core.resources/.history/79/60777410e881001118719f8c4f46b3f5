@@ -1,0 +1,10 @@
+package esercizio13;
+
+public class TestRegistrazione {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

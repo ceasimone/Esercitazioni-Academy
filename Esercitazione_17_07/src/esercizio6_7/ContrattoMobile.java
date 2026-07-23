@@ -1,0 +1,41 @@
+package esercizio6_7;
+
+import java.util.Random;
+
+public class ContrattoMobile extends ContrattoTelefonico {
+	
+	private static final double COSTO_RISPOSTA=0.05;
+	
+	public ContrattoMobile() {
+		
+	}
+	
+	public ContrattoMobile(String telefono, String nomeAbbonato) {
+		super(telefono,nomeAbbonato);
+	}
+
+	public static double getCostoRisposta() {
+		return COSTO_RISPOSTA;
+	}
+
+	@Override
+	public void chiama(String numeroChiamato) {
+		Random random= new Random();
+		int secondi = random.nextInt(100);
+		System.out.println("Il numero: " + this.getNumero() + " sta chiamando " + numeroChiamato + " per " + secondi + " secondi");
+		
+		this.incrementaBolletta((secondi*getCostoAlSecondo())+getCostoRisposta());
+		
+	}
+
+	@Override
+	public void bollettaFinale() {
+		System.out.println("La bolletta finale è di " + this.getBolletta() +" euro");
+		
+	}
+
+	
+	
+	
+
+}

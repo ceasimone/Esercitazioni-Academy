@@ -1,0 +1,54 @@
+package esercizio5;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Rectangle {
+	private double base;
+	private double altezza;
+	private List<Point2D> lista = new ArrayList<>();
+	private Point2D punto = new Point2D();
+
+	
+	public Rectangle() {
+	}
+	
+	public Rectangle(double base, double altezza, int x, int y) {
+		this.setBase(base);
+		this.setAltezza(altezza);
+		punto.setX(x);
+		punto.setY(y);
+		lista.add(punto);
+	}
+
+	public double getBase() {
+		return base;
+	}
+
+	public void setBase(double base) {
+		this.base = base;
+	}
+
+	public double getAltezza() {
+		return altezza;
+	}
+
+	public void setAltezza(double altezza) {
+		this.altezza = altezza;
+	}
+	
+	public void posizioneAttuale() {
+		/*Point2D stampa=lista.get(lista.size()-1);
+		System.out.println(stampa);*/
+		System.out.println(punto);
+	}
+	
+	public void spostamento(int x, int y) {
+		punto.
+	}
+	
+	
+	
+	
+
+}

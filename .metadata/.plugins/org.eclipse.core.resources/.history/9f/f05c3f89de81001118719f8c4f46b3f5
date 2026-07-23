@@ -1,0 +1,39 @@
+package esercizio8;
+
+public class Studente extends Persona {
+	private double mediaVoti;
+	
+	public Studente() {
+		this.mediaVoti=0.0;
+	}
+	
+	public Studente(String nome, String cognome, int eta) {
+		super(nome,cognome,eta);
+		this.mediaVoti=0.0;
+	}
+
+	public double getMediaVoti() {
+		return mediaVoti;
+	}
+
+	public void setMediaVoti(double mediaVoti) {
+		this.mediaVoti = mediaVoti;
+	}
+	
+	public void studia() {
+		System.out.println("Lo studente " + this.getNome() + " sta studiando");
+	}
+	
+	public void calcolaMediaVoti(double... voti) {
+		double somma=0.0;
+		for(double var: voti) {
+			somma += var;
+		}
+	}
+	
+	@Override
+	public String toString() {
+		return super.toString() + "\nMedia voti: " + this.mediaVoti;
+	}
+
+}

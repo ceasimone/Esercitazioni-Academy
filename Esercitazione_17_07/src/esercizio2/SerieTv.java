@@ -1,0 +1,62 @@
+package esercizio2;
+
+public class SerieTv {
+	private String nome;
+	private int stagioni;
+	private int puntate;
+	private double valutazione;
+	
+	static{
+		System.out.println("Creata Classe SerieTv");
+	}
+	
+	{
+		System.out.println("Creata istanza SerieTv");
+	}
+	
+	public SerieTv() {
+		
+	}
+	
+	public SerieTv(String nome, int stagioni, int puntate, double valutazione) {
+		this.setNome(nome);
+		this.setStagioni(stagioni);
+		this.setPuntate(puntate);
+		this.setValutazione(valutazione);	
+	}
+	public String getNome() {
+		return nome;
+	}
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+	public int getStagioni() {
+		return stagioni;
+	}
+	public void setStagioni(int stagioni) {
+		this.stagioni = stagioni;
+	}
+	public int getPuntate() {
+		return puntate;
+	}
+	public void setPuntate(int puntate) {
+		this.puntate = puntate;
+	}
+	public double getValutazione() {
+		return valutazione;
+	}
+	public void setValutazione(double valutazione) {
+		this.valutazione = valutazione;
+	}
+	
+	@Override
+	public String toString() {
+		return "SerieTv" +
+				"\nNome: " + nome +
+				"\nStagioni: " + stagioni+
+				"\nPuntate: " + puntate + 
+				"\nValutazione: " + valutazione;
+	}
+	
+
+}

@@ -1,0 +1,29 @@
+package esercizio8;
+
+public class Studente extends Persona {
+	private double mediaVoti;
+	
+	public Studente() {
+		
+	}
+	
+	public Studente(String nome, String cognome, int eta) {
+		super(nome,cognome,eta);
+	}
+
+	public double getMediaVoti() {
+		return mediaVoti;
+	}
+
+	public void setMediaVoti(double mediaVoti) {
+		this.mediaVoti = mediaVoti;
+	}
+	
+	
+	
+	@Override
+	public String toString() {
+		return super.toString() + "\nMedia voti: " + this.mediaVoti;
+	}
+
+}

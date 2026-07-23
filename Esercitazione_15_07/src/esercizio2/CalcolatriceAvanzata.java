@@ -1,0 +1,74 @@
+package esercizio2;
+
+public class CalcolatriceAvanzata {
+	
+	public static double somma(double arg1,double arg2) {
+		return arg1+arg2;
+	}
+	
+	public static double somma(double arg1,double arg2, double arg3) {
+		return arg1+arg2+arg3;
+	}
+	
+	public static double somma(double ... arg1) {
+		double somma=0;
+		for(int i=0; i<arg1.length;i++) {
+			somma += arg1[i];
+		}
+		return somma;		
+	}
+	
+	public static double sottrazione(double arg1,double arg2) {
+		return arg1-arg2;
+	}
+	
+	public static double sottrazione(double arg1,double arg2, double arg3) {
+		return arg1-arg2-arg3;
+	}
+	
+	public static double sottrazione(double ... arg1) {
+		double somma=arg1[0];
+		if(arg1.length>1) {
+			for(int i=1; i<arg1.length;i++) {
+				somma -= arg1[i];
+			}
+		}
+		return somma;		
+	}
+	
+	public static double divisione(double arg1,double arg2) {
+		return arg1/arg2;
+	}
+	
+	public static double divisione(double arg1,double arg2, double arg3) {
+		return arg1/arg2/arg3;
+	}
+	
+	public static double divisione(double ... arg1) throws Exception{
+		double risul=arg1[0];
+		for(int i=1; i<arg1.length;i++) {
+			if(arg1[i]==0.0) {
+					throw new Exception("impossibile dividere per 0");
+			}
+			risul = risul/arg1[i];
+		}
+		return risul;		
+	}
+	
+	public static double moltiplicazione(double arg1,double arg2) {
+		return arg1*arg2;
+	}
+	
+	public static double moltiplicazione(double arg1,double arg2, double arg3) {
+		return arg1*arg2*arg3;
+	}
+	
+	public static double moltiplicazione(double ... arg1){
+		double risul=1;
+		for(int i=0; i<arg1.length;i++) {
+			risul = risul*arg1[i];
+		}
+		return risul;		
+	}
+	
+}

@@ -1,0 +1,28 @@
+package esercizio6_7;
+
+import java.util.Random;
+
+public class ContrattoFisso extends ContrattoTelefonico {
+	
+	private String indirizzo;
+	
+	public ContrattoFisso() {
+		
+	}
+	public ContrattoFisso(String telefono, String nomeAbbonato, String indirizzo) {
+		super(telefono,nomeAbbonato);
+		this.indirizzo=indirizzo;
+	}
+	
+	
+	@Override
+	public void chiama(String numero) {
+		Random random= new Random();
+		int secondi = random.nextInt(100);
+		System.out.println("Il numero: " + this.getNumero() + " sta chiamando " + numero);
+		
+		this.setBolletta(secondi*getCostoAlSecondo());
+		
+	}
+
+}

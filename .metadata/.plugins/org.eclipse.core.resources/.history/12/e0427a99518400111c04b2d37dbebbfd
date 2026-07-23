@@ -1,0 +1,104 @@
+package esercizio1;
+
+public enum Cardinal {
+	
+	NORD,
+	NORD_NORD_EST,
+	NORD_EST,
+	EST_NORD_EST,
+	EST,
+	EST_SUD_EST,
+	SUD_EST,
+	SUD_SUD_EST,
+	SUD,
+	SUD_SUD_OVEST,
+	SUD_OVEST,
+	OVEST_SUD_OVEST,
+	OVEST,
+	OVEST_NORD_OVEST,
+	NORD_OVEST,
+	NORD_NORD_OVEST;
+	
+	public boolean isOpposite(Cardinal c) {
+		
+		switch (this) {
+
+        case NORD:
+            return c == SUD;
+
+        case NORD_NORD_EST:
+            return c == SUD_SUD_OVEST;
+
+        case NORD_EST:
+            return c == SUD_OVEST;
+
+        case EST_NORD_EST:
+            return c == OVEST_SUD_OVEST;
+
+        case EST:
+            return c == OVEST;
+
+        case EST_SUD_EST:
+            return c == OVEST_NORD_OVEST;
+
+        case SUD_EST:
+            return c == NORD_OVEST;
+
+        case SUD_SUD_EST:
+            return c == NORD_NORD_OVEST;
+
+        case SUD:
+            return c == NORD;
+
+        case SUD_SUD_OVEST:
+            return c == NORD_NORD_EST;
+
+        case SUD_OVEST:
+            return c == NORD_EST;
+
+        case OVEST_SUD_OVEST:
+            return c == EST_NORD_EST;
+
+        case OVEST:
+            return c == EST;
+
+        case OVEST_NORD_OVEST:
+            return c == EST_SUD_EST;
+
+        case NORD_OVEST:
+            return c == SUD_EST;
+
+        case NORD_NORD_OVEST:
+            return c == SUD_SUD_EST;
+
+        default:
+            return false;
+		}
+		
+	}
+	
+	public static void puntoMedio(Cardinal c1, Cardinal c2) {
+		int pos1= c1.ordinal();
+		int pos2= c2.ordinal();
+		
+		if(c1.isOpposite(c2)) {
+			System.out.println("I punti cardinali sono opposti");
+			return;
+		}
+			
+		
+		int distance = Math.abs(pos1-pos2);
+		
+		if(distance > 8) {
+			if(pos1<pos2) {
+				pos1+= 16;
+			}else {
+				pos2+=16;
+			}
+		}
+		int medio= (pos1+pos2)/2;
+		System.out.println(Cardinal.values()[medio]);
+	}
+	
+	
+}

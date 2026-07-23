@@ -1,0 +1,50 @@
+package esercizio5;
+
+import java.util.Random;
+
+public class Gara {
+	private String nomeGara;
+	private Pilota[] persone;
+	private Pilota[] griglia;
+	
+	
+	
+	public Gara() {
+		
+	}
+	
+	public Gara(String nomeGara, Pilota[] persone) {
+		this.nomeGara=nomeGara;
+		this.persone=persone;
+		this.griglia= new Pilota[persone.length];
+	}
+	
+	public void stampaPiloti() {
+		for( Pilota val: persone) {
+			System.out.println(val) ;
+		}
+	}
+	
+	public void creaGrigliaDiPartenza() {
+		Random random= new Random();
+		boolean[] usati = new boolean[persone.length];
+		for(int i=0; i<persone.length;i++) {
+			int j ;
+			do {
+				j= random.nextInt(persone.length);
+			} while(usati[j]);
+			griglia[i] = persone[j];
+			usati[j]=true;
+		}
+	}
+	
+	public void stampaGrigliaDiPartenza() {
+		for( Pilota val: griglia) {
+			System.out.println(val) ;
+		}
+		
+		
+	}
+	
+
+}

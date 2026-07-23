@@ -1,0 +1,32 @@
+package esercizio1;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+		ArrayList< Integer > valori = new ArrayList<>();
+		Scanner input = new Scanner(System.in);
+		
+		while(true) {
+			System.out.println("Inserisci il valore o la parola 'esci' per terminare l'inserimento");
+			String valore=input.nextLine().toLowerCase();
+			if(valore.equalsIgnoreCase("e")) {
+				break;
+			}
+			
+				try {
+					int valore1=Integer.parseInt(valore);
+					valori.add(valore1);
+				} catch(NumberFormatException e) {
+					System.out.println("Valore non valido.");
+				}
+			}
+		
+		
+		System.out.println("Numeri inseriti: " + valori);
+
+	}
+
+}

@@ -1,0 +1,46 @@
+package esercizio5;
+
+public class Pilota {
+	private String nome;
+	private Auto macchina;
+	
+	
+	public Pilota() {
+		
+	}
+	
+	public Pilota(String nome, String automobile, String scuderia) {
+		this.setNome(nome);
+		macchina= new Auto(automobile,scuderia);
+	}
+
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public Auto getMacchina() {
+		return macchina;
+	}
+
+	public void setMacchina(Auto macchina) {
+		this.macchina = macchina;
+	}
+	
+	public void stampaAuto() {
+		System.out.println("Modello macchina: " + macchina.getNome() + "\nScuderia: " + macchina.getScuderia());
+	}
+	
+	@Override
+	public String toString() {
+		return "Pilota: " + this.nome +
+				"\nModello macchina: " + macchina.getNome() + 
+				"\nScuderia: " + macchina.getScuderia();
+	}
+	
+	
+	
+}

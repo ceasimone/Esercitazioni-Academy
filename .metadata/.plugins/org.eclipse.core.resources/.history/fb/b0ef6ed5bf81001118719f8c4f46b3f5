@@ -1,0 +1,38 @@
+package esercizio3;
+
+public class MacchinettaCaffe {
+	private static int massimoCialde=10;
+	private int quantitaCialdeContenute;
+	
+	public MacchinettaCaffe() {
+		this.setQuantitaCialdeContenute(0);
+	}
+
+	public static int getMassimoCialde() {
+		return massimoCialde;
+	}
+
+	public static void setMassimoCialde(int massimoCialde) {
+		MacchinettaCaffe.massimoCialde = massimoCialde;
+	}
+
+	public int getQuantitaCialdeContenute() {
+		return quantitaCialdeContenute;
+	}
+
+	public void setQuantitaCialdeContenute(int quantitaCialdeContenute) {
+		this.quantitaCialdeContenute = quantitaCialdeContenute;
+	}
+	
+	public void faiCaffe() {
+		if(this.quantitaCialdeContenute<=10) {
+			System.out.println("Stai preparando un caffè...");
+			this.quantitaCialdeContenute++;
+		}else {
+			System.out.println("Svuota cassetto cialde");
+		}
+		
+	}
+	
+	
+}

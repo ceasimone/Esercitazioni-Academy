@@ -1,0 +1,17 @@
+package esercizio5;
+
+public class Gara {
+	private String nomeGara;
+	private Pilota[] persone;
+	
+	public Gara() {
+		
+	}
+	
+	public Gara(String nomeGara, Pilota[] persone) {
+		this.nomeGara=nomeGara;
+		this.persone=persone;
+	}
+	
+
+}

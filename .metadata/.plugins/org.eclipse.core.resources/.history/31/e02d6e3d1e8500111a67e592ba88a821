@@ -1,0 +1,8 @@
+package esercizio5;
+
+public interface WTwoDShape {
+
+	double area();
+	
+	double perimetro();
+}

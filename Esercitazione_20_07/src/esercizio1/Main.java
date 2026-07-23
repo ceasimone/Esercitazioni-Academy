@@ -1,0 +1,18 @@
+package esercizio1;
+
+public class Main {
+
+	public static void main(String[] args) {
+		
+		
+		System.out.println(Cardinal.NORD.isOpposite(Cardinal.SUD));
+		System.out.println(Cardinal.NORD_EST.isOpposite(Cardinal.SUD));
+		System.out.println(Cardinal.EST_SUD_EST.isOpposite(Cardinal.OVEST_NORD_OVEST));
+		System.out.println(Cardinal.OVEST_NORD_OVEST.isOpposite(Cardinal.EST_SUD_EST));
+		
+		
+		Cardinal.puntoMedio(Cardinal.NORD, Cardinal.EST);
+		Cardinal.puntoMedio(Cardinal.NORD, Cardinal.OVEST);
+	}
+
+}

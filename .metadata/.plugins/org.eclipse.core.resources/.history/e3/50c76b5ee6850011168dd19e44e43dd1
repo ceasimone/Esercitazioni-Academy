@@ -1,0 +1,30 @@
+package progettoselenium;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class Main {
+
+	public static void main(String[] args) {
+		
+		try {
+		System.setProperty("webdrive.chrome.driver", "C:\\Users\\Simone\\Desktop\\chromedriver-win64\\chromedriver.exe");
+		
+		WebDriver driver = new ChromeDriver();
+		
+		
+		driver.get("https://www.google.com");
+		
+		Thread.sleep(5000);
+		
+		String titolo = driver.getTitle();
+		System.out.println("Il titolo è " + titolo);
+		
+		driver.navigate().to("https://www.google.com/maps");
+	
+		
+		}catch(InterruptedException e) {
+			e.printStackTrace();
+		}
+	}
+}

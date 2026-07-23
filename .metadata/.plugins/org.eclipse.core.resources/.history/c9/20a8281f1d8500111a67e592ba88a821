@@ -1,0 +1,19 @@
+package esercizio5;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Square {
+	double lato;
+	Point2D punto= new Point2D();
+	List<Point2D> lista= new ArrayList<>();
+	
+	public Square() {
+		
+	}
+	
+	public Square(double lato, int x , int y) {
+		
+	}
+
+}

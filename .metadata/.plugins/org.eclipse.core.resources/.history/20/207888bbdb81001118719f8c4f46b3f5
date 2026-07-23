@@ -1,0 +1,15 @@
+package esercizio6_7;
+
+public class ContrattoMobile {
+	
+	private static double COSTO_RISPOSTA=0.05;
+	
+	public ContrattoMobile() {
+		
+	}
+	
+	public ContrattoMobile(String telefono, String nomeAbbonato) {
+		super(telefono,nomeAbbonato);
+	}
+
+}

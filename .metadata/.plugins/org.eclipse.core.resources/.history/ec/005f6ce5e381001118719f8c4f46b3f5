@@ -1,0 +1,21 @@
+package esercizio10;
+
+public class Main {
+
+	public static void main(String[] args) {
+		
+
+	}
+	
+	public boolean decrescente(int[] a) {
+		int temp=a[0];
+		for(int i=1; i<a.length;i++) {
+			if(temp<a[i]) {
+				temp=a[i];
+				return false;
+			}
+		}
+		return true;
+	}
+
+}

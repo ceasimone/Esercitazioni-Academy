@@ -1,0 +1,41 @@
+package esercizio6_7;
+
+import java.util.Random;
+
+public class ContrattoFisso extends ContrattoTelefonico {
+	
+	private String indirizzo;
+	
+	public ContrattoFisso() {
+		
+	}
+	public ContrattoFisso(String telefono, String nomeAbbonato, String indirizzo) {
+		super(telefono,nomeAbbonato);
+		this.setIndirizzo(indirizzo);
+	}
+	
+
+	public String getIndirizzo() {
+		return indirizzo;
+	}
+	public void setIndirizzo(String indirizzo) {
+		this.indirizzo = indirizzo;
+	}
+
+	
+	
+	@Override
+	public void chiama(String numero) {
+		Random random= new Random();
+		int secondi = random.nextInt(100);
+		System.out.println("Il numero: " + this.getNumero() + " sta chiamando " + numero + " per " + secondi + " secondi");
+		
+		this.setBolletta(secondi*getCostoAlSecondo());
+		
+	}
+	@Override
+	public void bollettaFinale() {
+		String.out.println("La bolletta finale è di " + this.getBolletta() +" euro");
+		
+	}
+}

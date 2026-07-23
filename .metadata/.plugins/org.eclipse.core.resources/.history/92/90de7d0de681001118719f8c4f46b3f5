@@ -1,0 +1,18 @@
+package esercizio12;
+
+public class Bicicletta {
+	private String modello;
+	double prezzo;
+	
+	public Bicicletta() {
+		
+	}
+	
+	public Bicicletta(String modello, double prezzo) {
+		this.modello=modello;
+		this.prezzo=prezzo;
+	}
+	
+	
+	
+}
