@@ -1,7 +1,0 @@
-package esercizio13;
-
-public class EmptyInputException extends Exception{
-	public EmptyInputException(String messaggio) {
-        super(messaggio);
-    }
-}

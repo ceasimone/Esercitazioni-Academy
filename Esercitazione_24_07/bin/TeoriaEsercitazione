@@ -1,0 +1,116 @@
+1) Definisci l’overload.
+L'overload consiste nel definire più metodi con lo stesso nome all'interno della stessa classe, 
+ma con una firma diversa (numero, tipo o ordine dei parametri). Permette di eseguire operazioni 
+simili con parametri differenti.
+
+2) Definisci l’override.
+L'override consiste nella ridefinizione di un metodo ereditato da una superclasse all'interno
+della sottoclasse, mantenendo la stessa firma. Permette di modificare il comportamento del metodo.
+
+3) Spiega cos’è il polimorfismo.
+Il polimorfismo è la capacità di utilizzare uno stesso metodo o riferimento per eseguire 
+comportamenti diversi a seconda dell'oggetto a cui si riferisce.
+
+4) Qual è la differenza tra polimorfismo per dati e polimorfismo per metodi?
+Il polimorfismo per dati permette a un riferimento di assumere forme diverse riferendosi a 
+oggetti di classi differenti. Il polimorfismo per metodi permette di invocare lo stesso metodo 
+ottenendo comportamenti diversi grazie all'override.
+
+5) Cos’è un’eccezione? Che differenza c’è tra checked e unchecked?
+Un'eccezione è un evento che interrompe il normale flusso di esecuzione del programma.
+Le checked exception devono essere gestite obbligatoriamente con try-catch o throws.
+Le unchecked exception non richiedono una gestione obbligatoria e derivano generalmente da errori di programmazione.
+
+6) Quando utilizziamo il multi catch?
+Il multi catch viene utilizzato quando si vogliono gestire più tipi di eccezioni con lo stesso blocco catch,
+evitando di duplicare il codice.
+
+7) Cosa rappresentano gli enum?
+Gli enum rappresentano un insieme di costanti predefinite e permettono di limitare i valori che una variabile può assumere.
+
+8) Come funziona uno switch con gli enum?
+Lo switch confronta il valore della variabile enum con le costanti definite nell'enumerazione, 
+eseguendo il blocco di codice corrispondente.
+
+9) Cosa sono i generics?
+I generics permettono di creare classi, interfacce e metodi utilizzando tipi di dato generici,
+aumentando il riutilizzo del codice e la sicurezza dei tipi.
+
+
+10)Qual è la sintassi dell’espressione lambda?
+(parametri) -> espressione
+(parametri) -> { istruzioni; }
+
+11) Definisci Framework Collections.
+Il Framework Collections è un insieme di classi e interfacce che permette di gestire collezioni di oggetti, 
+come liste, insiemi e mappe.
+
+12) Spiega le differenze tra HashSet e TreeSet.
+HashSet memorizza elementi senza un ordine specifico.
+TreeSet mantiene gli elementi ordinati automaticamente e utilizza una struttura ad albero.
+
+13) Cos’è Git? E Git Bash?
+Git è un sistema di controllo di versione distribuito che permette di gestire le modifiche al codice sorgente.
+Git Bash è un terminale che consente di utilizzare i comandi Git in locale.
+
+14) Spiega la funzione dell’area di staging.
+L'area di staging è un'area temporanea in cui vengono inserite le modifiche da includere nel commit successivo.
+
+15) Qual è la definizione di testing?
+Il testing è il processo che permette di verificare il corretto funzionamento di un software e di individuare eventuali errori.
+
+16) Cosa si intende per glossario standard della terminologia dell’ingegneria per lo sviluppo del software?
+È un insieme di definizioni condivise che permette di utilizzare una terminologia comune nello sviluppo e nel testing del software.
+
+17) Riassumi brevemente la storia del testing.
+Il testing nasce come attività di ricerca degli errori nel software.
+Nel tempo si è evoluto introducendo metodologie e strumenti automatici per migliorare la qualità e l'affidabilità delle applicazioni.
+
+18) Spiega il framework Selenium.
+Selenium è un framework open source che permette di automatizzare il test delle applicazioni web simulando le operazioni effettuate da un utente sul browser.
+
+19) Descrivi l’utilizzo dei comandi principali di Selenium WebDriver.
+I principali comandi sono:
+get() per aprire una pagina web.
+findElement() per individuare un elemento.
+click() per simulare un clic.
+sendKeys() per inserire testo.
+getText() per leggere il contenuto di un elemento.
+
+20) Cos’è Selenium Grid?
+Selenium Grid permette di eseguire gli stessi test contemporaneamente su browser e sistemi operativi differenti.
+
+21) Descrivi l’architettura monolitica.
+L'architettura monolitica è un modello in cui tutte le funzionalità dell'applicazione sono sviluppate e distribuite come un unico programma.
+
+22) Che cos’è un microservizio?
+Un microservizio è un piccolo servizio indipendente che svolge una specifica funzione e comunica con gli altri servizi tramite API.
+
+23) Definisci le differenze tra architettura monolitica e microservizi.
+Nell'architettura monolitica tutte le funzionalità sono contenute in un'unica applicazione.
+Nei microservizi, invece, l'applicazione è suddivisa in servizi indipendenti che possono essere sviluppati, distribuiti e aggiornati separatamente.
+
+24) Cosa si intende per XML? E per JSON?
+XML è un linguaggio di marcatura utilizzato per rappresentare e scambiare dati.
+JSON è un formato testuale leggero per lo scambio di dati, più semplice e compatto rispetto a XML.
+
+25) Cosa si intende per scalabilità?
+La scalabilità è la capacità di un sistema di gestire un aumento del carico di lavoro mantenendo buone prestazioni.
+
+26) Che ruolo ha il team nella realizzazione di un microservizio?
+Ogni team è generalmente responsabile dello sviluppo, del testing, della distribuzione e della manutenzione di uno o più microservizi.
+
+27) Cosa si intende per inconsistenza dei dati?
+L'inconsistenza dei dati si verifica quando gli stessi dati presenti in sistemi diversi risultano differenti o non aggiornati tra loro.
+
+28) Che differenza c’è tra la comunicazione sincrona e quella asincrona?
+Nella comunicazione sincrona il chiamante attende la risposta prima di continuare l'esecuzione.
+Nella comunicazione asincrona il chiamante invia la richiesta e continua l'esecuzione senza attendere immediatamente la risposta.
+
+29) Definisci il Circuit Breaker.
+Il Circuit Breaker è un meccanismo che interrompe temporaneamente le richieste verso un servizio non disponibile,
+evitando il propagarsi degli errori e migliorando la resilienza del sistema.
+
+30) Cosa si intende per Continuous Deployment?
+Il Continuous Deployment è una pratica DevOps che prevede il rilascio automatico
+in produzione di ogni modifica che supera con successo tutte le fasi di test e validazione.
