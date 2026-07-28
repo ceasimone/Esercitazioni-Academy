@@ -4,8 +4,7 @@ public class Motociclo extends Veicolo {
 
     private int cilindrata;
 
-    public Motociclo(String modello, String targa, int annoImmatricolazione,
-                     double costoGiornaliero, int cilindrata) {
+    public Motociclo(String modello, String targa, int annoImmatricolazione, double costoGiornaliero, int cilindrata) {
 
         super(modello, targa, annoImmatricolazione, costoGiornaliero);
         this.cilindrata = cilindrata;
