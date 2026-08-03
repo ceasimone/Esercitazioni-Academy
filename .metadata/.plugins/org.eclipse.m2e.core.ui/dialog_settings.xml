@@ -2,6 +2,7 @@
 <section name="Workbench">
 	<section name="MavenProjectWizardLocationPage">
 		<list key="location">
+			<item value="C:\Users\Simone\eclipse-workspace\Java26_06\Esercitazione_03_08\src\main\java\Esercitazione_03_08\beans\Smartphone.java"/>
 			<item value="C:\Users\Simone\eclipse-workspace\Java26_06\Esercitazione_21_07\src\esercizio5\Square.java"/>
 		</list>
 		<list key="projectNameTemplate">
@@ -45,18 +46,21 @@
 	</section>
 	<section name="MavenProjectWizardArtifactPage">
 		<list key="groupId">
+			<item value="Esercitazione_03_08"/>
 			<item value="Esercitazione_29_07"/>
 			<item value="progettohibernate"/>
 			<item value="primoprogettohibernate"/>
 			<item value="progettoselenium"/>
 		</list>
 		<list key="name">
+			<item value="Esercitazione_03_08"/>
 			<item value="Esercitazione_29_07"/>
 			<item value="progettohibernate"/>
 			<item value="primoprogettohibernate"/>
 			<item value="progettoselenium"/>
 		</list>
 		<list key="artifactId">
+			<item value="Esercitazione_03_08"/>
 			<item value="Esercitazione_29_07"/>
 			<item value="progettohibernate"/>
 			<item value="primoprogettohibernate"/>

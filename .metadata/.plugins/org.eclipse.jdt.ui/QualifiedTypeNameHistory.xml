@@ -26,4 +26,6 @@
     <fullyQualifiedTypeName name="Esercitazione_29_07.entity.Automobile"/>
     <fullyQualifiedTypeName name="org.hibernate.metamodel.model.domain.ListPersistentAttribute"/>
     <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="org.springframework.context.annotation.AnnotationConfigApplicationContext"/>
+    <fullyQualifiedTypeName name="Esercitazione_03_08.beans.Batteria"/>
 </qualifiedTypeNameHistroy>
