@@ -45,16 +45,19 @@
 	</section>
 	<section name="MavenProjectWizardArtifactPage">
 		<list key="groupId">
+			<item value="Esercitazione_29_07"/>
 			<item value="progettohibernate"/>
 			<item value="primoprogettohibernate"/>
 			<item value="progettoselenium"/>
 		</list>
 		<list key="name">
+			<item value="Esercitazione_29_07"/>
 			<item value="progettohibernate"/>
 			<item value="primoprogettohibernate"/>
 			<item value="progettoselenium"/>
 		</list>
 		<list key="artifactId">
+			<item value="Esercitazione_29_07"/>
 			<item value="progettohibernate"/>
 			<item value="primoprogettohibernate"/>
 			<item value="progettoselenium"/>

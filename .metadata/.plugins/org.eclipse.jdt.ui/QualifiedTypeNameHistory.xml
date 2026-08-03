@@ -10,15 +10,20 @@
     <fullyQualifiedTypeName name="java.sql.DriverManager"/>
     <fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
     <fullyQualifiedTypeName name="java.sql.SQLException"/>
-    <fullyQualifiedTypeName name="jakarta.persistence.GenerationType"/>
     <fullyQualifiedTypeName name="jakarta.persistence.CascadeType"/>
-    <fullyQualifiedTypeName name="org.hibernate.cfg.Configuration"/>
     <fullyQualifiedTypeName name="org.hibernate.Transaction"/>
-    <fullyQualifiedTypeName name="org.hibernate.SessionFactory"/>
     <fullyQualifiedTypeName name="org.hibernate.exception.ConstraintViolationException"/>
     <fullyQualifiedTypeName name="org.hibernate.HibernateException"/>
     <fullyQualifiedTypeName name="progettohibernate.configuration.HibernateUtil"/>
     <fullyQualifiedTypeName name="progettohibernate.entity.Libro"/>
     <fullyQualifiedTypeName name="progettohibernate.dao.InterfacciaDao"/>
     <fullyQualifiedTypeName name="progettohibernate.entity.Autore"/>
+    <fullyQualifiedTypeName name="org.hibernate.cfg.Configuration"/>
+    <fullyQualifiedTypeName name="jakarta.persistence.GenerationType"/>
+    <fullyQualifiedTypeName name="Esercitazione_29_07.configuration.HibernateUtil"/>
+    <fullyQualifiedTypeName name="org.hibernate.SessionFactory"/>
+    <fullyQualifiedTypeName name="Esercitazione_29_07.dao.PersonaDaoImpl"/>
+    <fullyQualifiedTypeName name="Esercitazione_29_07.entity.Automobile"/>
+    <fullyQualifiedTypeName name="org.hibernate.metamodel.model.domain.ListPersistentAttribute"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
 </qualifiedTypeNameHistroy>
