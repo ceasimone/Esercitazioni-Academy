@@ -19,11 +19,11 @@ public class Main {
 		
 		Motore m1 = (Motore) context.getBean("elettrico");
 		
-		m1.setTipo("ciao");
+		m1.setVariabile("ciao1");
 		
 		Motore m2 = (Motore) context.getBean("benzina");
 		
-		m2.setTipo("none");
+		m2.setVariabile("ciao2");
 		
 		System.out.println(a1);
 		
@@ -31,6 +31,8 @@ public class Main {
 		
 		System.out.println(a2);
 		
+		System.out.println(a1.getMotore().getVariabile());
+		System.out.println(a2.getMotore().getVariabile());
 		context.close();
 
 	}

@@ -12,8 +12,7 @@ public class ConfigAutomobile {
 	
 	@Bean
 	public Automobile autoElettrica(@Qualifier("elettrico")Motore motore) {
-		Automobile a = new Automobile();
-		a.setMotore(motore);
+		Automobile a = new Automobile("tesla",motore);
 		return a;
 	}
 	@Bean

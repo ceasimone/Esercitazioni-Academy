@@ -21,8 +21,8 @@
 	<section name="JavaElementSearchActions">
 	</section>
 	<section name="NewPackageCreationWizard.dialogBounds">
-		<item key="DIALOG_X_ORIGIN" value="577"/>
-		<item key="DIALOG_Y_ORIGIN" value="380"/>
+		<item key="DIALOG_X_ORIGIN" value="296"/>
+		<item key="DIALOG_Y_ORIGIN" value="358"/>
 		<item key="DIALOG_WIDTH" value="534"/>
 		<item key="DIALOG_HEIGHT" value="500"/>
 		<item key="DIALOG_FONT_NAME" value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI"/>

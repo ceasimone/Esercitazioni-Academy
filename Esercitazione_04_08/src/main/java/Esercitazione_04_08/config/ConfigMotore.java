@@ -13,15 +13,22 @@ public class ConfigMotore {
 	
 	@Bean(name="elettrico")
 	public Motore motore1() {
-		return new Motore(); //1
+		Motore m = new Motore();
+		m.setTipo("elettrico");
+		return m; //1
+		
 	}
 	@Bean(name="benzina")
 	public Motore motore2() {
-		return new Motore(); //2
+		Motore m = new Motore();
+		m.setTipo("benzina");
+		return m; //1
 	}
 	@Bean(name="diesel")
 	public Motore motore3() {
-		return new Motore();  //3
+		Motore m = new Motore();
+		m.setTipo("diesel");
+		return m; //1
 	}
 
 }

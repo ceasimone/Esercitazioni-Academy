@@ -5,6 +5,7 @@ import javax.annotation.PreDestroy;
 
 public class Motore {
 	private String tipo;
+	private String variabile;
 	
 	public Motore() {
 		super();
@@ -26,6 +27,14 @@ public class Motore {
 	}
 
 
+	public String getVariabile() {
+		return variabile;
+	}
+
+	public void setVariabile(String variabile) {
+		this.variabile = variabile;
+	}
+
 	@PostConstruct
 	public void  metodoPostConstruct() {
 		System.out.println("Motore appena realizzato");
@@ -40,7 +49,7 @@ public class Motore {
 	
 	@Override
 	public String toString() {
-		return "Motore [tipo=" + tipo + "]";
+		return "Motore [tipo=" + tipo + ", variabile=" + variabile + "]";
 	}
 	
 	
