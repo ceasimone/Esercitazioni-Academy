@@ -58,28 +58,51 @@ public class MangaService {
 		return mangaRepo.findValutazioneById(id);
 	}
 	
+	private Manga trovaMangaOrThrow(Integer id) {
+		Optional<Manga> optM = mangaRepo.findById(id);
+		if(optM.isPresent()) {
+			return optM.get();
+		} else {
+			throw new RuntimeException("Manga con id " + id + " non trovato");
+		}
+	}
+	
 	public void modificaNome(String nome, Integer id) {
-		mangaRepo.updateNomeById(nome, id);
+		Manga m = trovaMangaOrThrow(id);
+		m.setNome(nome);
+		mangaRepo.save(m);
 	}
 	
 	public void modificaDescrizione(String descrizione, Integer id) {
-		mangaRepo.updateDescrizioneById(descrizione, id);
+		Manga m = trovaMangaOrThrow(id);
+		m.setDescrizione(descrizione);
+		mangaRepo.save(m);
 	}
 	
-	public void modificaCapitoli(int capitoli,Integer id) {
-		mangaRepo.updateCapitoliById(capitoli, id);
+	public void modificaCapitoli(int capitoli, Integer id) {
+		Manga m = trovaMangaOrThrow(id);
+		m.setCapitoli(capitoli);
+		mangaRepo.save(m);
 	}
 	
 	public void modificaValutazione(double valutazione, Integer id) {
-		mangaRepo.updateValutazioneById(valutazione, id);
+		Manga m = trovaMangaOrThrow(id);
+		m.setValutazione(valutazione);
+		mangaRepo.save(m);
 	}
 	
-	public void modificaPrezzo(double prezzo,Integer id) {
-		mangaRepo.updatePrezzoById(prezzo, id);
+	public void modificaPrezzo(double prezzo, Integer id) {
+		Manga m = trovaMangaOrThrow(id);
+		m.setPrezzo(prezzo);
+		mangaRepo.save(m);
 	}
 	
 	public void cancellaManga(Integer id) {
 		mangaRepo.deleteById(id);
+	}
+	
+	public List<Manga> cercaTuttiManga() {
+		return mangaRepo.findAll();
 	}
 
 }

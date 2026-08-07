@@ -53,16 +53,33 @@ public class FumetteriaService {
 		return fumetteriaRepo.findByIndirizzo(indirizzo);
 	}
 	
-	public void modificaNomeFumetteria(String nome,Integer id) {
-		fumetteriaRepo.updateNomeById(nome, id);
+	public void modificaNomeFumetteria(String nome, Integer id) {
+		Optional<Fumetteria> optF = fumetteriaRepo.findById(id);
+		if(optF.isPresent()) {
+			Fumetteria f = optF.get();
+			f.setNome(nome);
+			fumetteriaRepo.save(f);
+		} else {
+			throw new RuntimeException("Fumetteria con id " + id + " non trovata");
+		}
 	}
 	
-//	public void modificaIndirizzoFumetteria(String indirizzo,Integer id) {
-//		fumetteriaRepo.updateIndirizzoById(indirizzo, id);
-//	}
+	public void modificaIndirizzoFumetteria(String indirizzo, Integer id) {
+		Optional<Fumetteria> optF = fumetteriaRepo.findById(id);
+		if(optF.isPresent()) {
+			Fumetteria f = optF.get();
+			f.setIndirizzo(indirizzo);
+			fumetteriaRepo.save(f);
+		} else {
+			throw new RuntimeException("Fumetteria con id " + id + " non trovata");
+		}
+	}
 	
 	public void cancellaFumetteria(Integer id) {
 		fumetteriaRepo.deleteById(id);
 	}
 
+	public List<Fumetteria> cercaTutteFumetterie() {
+		return fumetteriaRepo.findAll();
+	}
 }

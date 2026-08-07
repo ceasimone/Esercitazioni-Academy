@@ -1,0 +1,121 @@
+1) Cos’è una API?
+Una API (Application Programming Interface) è un insieme di regole e strumenti che permette a due applicazioni o componenti software diversi di comunicare tra loro, consentendo di utilizzare funzionalità o dati messi a disposizione da un altro sistema.
+
+2) Descrivi l’architettura di Spring Framework.
+Spring è organizzato in diversi moduli, ognuno dedicato a una specifica funzionalità. Il nucleo principale è costituito dall'IoC Container, che gestisce i Bean e le loro dipendenze. Tra i principali moduli troviamo Spring Core, Spring AOP, Spring Data e Spring Web/MVC.
+
+3) Che differenza c’è tra Spring e Spring Boot?
+Spring è un framework che richiede generalmente una maggiore configurazione dell'applicazione.
+Spring Boot è costruito sopra Spring e semplifica la configurazione e lo sviluppo delle applicazioni, utilizzando configurazioni automatiche, starter e un server integrato.
+
+4) A cosa serve il file application.properties?
+Il file application.properties contiene le configurazioni dell'applicazione Spring Boot, come porta del server, connessione al database, username, password e altre proprietà del progetto.
+
+5) Che cos’è IoC Container e come funziona?
+L'IoC Container è il componente di Spring che gestisce il ciclo di vita e le dipendenze degli oggetti, chiamati Bean. Il container crea gli oggetti necessari e li collega tra loro automaticamente in base alla configurazione dell'applicazione.
+
+6) Cos’è una Dependency Injection?
+La Dependency Injection è il meccanismo attraverso cui un oggetto riceve dall'esterno gli oggetti da cui dipende, invece di crearli direttamente. In questo modo si riduce l'accoppiamento tra le classi.
+
+7) Cos’è Inversion of Control (IoC)?
+L'Inversion of Control è il principio secondo cui il controllo della creazione e della gestione degli oggetti viene trasferito dalla classe al framework. In Spring è l'IoC Container a gestire la creazione e le dipendenze dei Bean.
+
+8) Descrivere la funzione dell’annotazione @Component.
+@Component indica a Spring che una classe deve essere riconosciuta come Bean e quindi gestita dall'IoC Container. Il Bean viene automaticamente individuato durante il component scanning.
+
+9) Come utilizziamo @Configuration?
+@Configuration indica che una classe contiene la configurazione dell'applicazione. Al suo interno possiamo utilizzare @Bean per definire esplicitamente gli oggetti che devono essere gestiti dal container Spring.
+
+10) Cosa rappresenta l’Application Context?
+L'Application Context è il contenitore di Spring che gestisce i Bean dell'applicazione, occupandosi della loro creazione, configurazione, gestione del ciclo di vita e delle dipendenze.
+
+11) Cos’è un Bean?
+Un Bean è un oggetto Java che viene creato e gestito dall'IoC Container di Spring. Il container ne gestisce il ciclo di vita e le eventuali dipendenze.
+
+12) Cosa si intende per Injection Point? E @Autowired?
+L'Injection Point è il punto della classe in cui Spring deve inserire una dipendenza. Può trovarsi, ad esempio, nel costruttore, in un setter o direttamente in un attributo.
+@Autowired indica a Spring quale dipendenza deve essere automaticamente iniettata.
+
+13) Quanti modi esistono per configurare Spring? Argomenta.
+
+Spring può essere configurato principalmente in tre modi:
+XML: utilizzando file XML per definire Bean e configurazioni;
+Annotation-based: utilizzando annotazioni come @Component, @Service, @Repository;
+Java-based: utilizzando classi di configurazione con @Configuration e @Bean.
+
+14) Spiega l’utilizzo dell’annotazione @Lazy.
+@Lazy indica che un Bean deve essere creato solo quando viene effettivamente richiesto, invece di essere creato all'avvio dell'applicazione. Può essere utile per ridurre il tempo di avvio e il consumo iniziale di risorse.
+
+15) Cosa si intende per Bean Scope?
+Il Bean Scope definisce il ciclo di vita e la modalità con cui viene creata e condivisa un'istanza di un Bean. Lo scope predefinito è singleton, nel quale Spring crea una sola istanza del Bean per il container.
+
+16) Come utilizziamo l’annotazione @Qualifier? E @Resource?
+@Qualifier viene utilizzata quando esistono più Bean dello stesso tipo e permette di specificare quale Bean deve essere iniettato.
+@Resource permette di effettuare l'iniezione di una dipendenza, normalmente identificandola tramite il nome del Bean.
+
+17) Qual è la differenza tra session e transaction?
+La session rappresenta una sessione di lavoro tra l'applicazione e il database e permette di eseguire operazioni sui dati.
+La transaction rappresenta invece un insieme di operazioni che devono essere eseguite in modo atomico: o vengono completate tutte correttamente oppure vengono annullate.
+
+18) A cosa serve una repository?
+Una repository è un componente che si occupa dell'accesso ai dati, permettendo di effettuare operazioni come inserimento, modifica, ricerca e cancellazione delle Entity nel database.
+
+19) Cos’è il pattern architetturale MVC?
+MVC (Model-View-Controller) è un pattern architetturale che divide l'applicazione in tre componenti principali, separando la gestione dei dati, la presentazione e la gestione delle richieste.
+
+20) Descrivi dettagliatamente View, Model e Controller.
+Model: rappresenta i dati e la logica dell'applicazione.
+View: si occupa della presentazione dei dati all'utente.
+Controller: riceve le richieste dell'utente, coordina le operazioni necessarie e restituisce una risposta o una View.
+
+21) Cosa si intende per ViewResolver?
+Il ViewResolver è il componente che permette a Spring MVC di individuare la View da utilizzare a partire dal nome restituito dal Controller.
+
+22) Cos’è Rest Controller?
+Un REST Controller è un Controller che espone delle API REST e restituisce direttamente i dati, generalmente in formato JSON, invece di restituire una pagina HTML.
+
+In Spring viene generalmente definito tramite @RestController.
+
+23) Come funzionano le web application?
+Una web application funziona attraverso una comunicazione tra client e server. Il client invia una richiesta HTTP al server, il quale la elabora e restituisce una risposta HTTP contenente dati, una pagina web o un'altra risorsa.
+
+24) Descrivere l’utilizzo dell’annotazione @RequestMapping.
+@RequestMapping permette di associare una richiesta HTTP a un metodo o a un Controller, specificando il percorso dell'URL e, se necessario, il metodo HTTP utilizzato.
+
+25) Descrivere l’utilizzo dell’annotazione @ResponseBody.
+@ResponseBody indica a Spring di inserire direttamente il valore restituito dal metodo nella risposta HTTP, invece di interpretarlo come il nome di una View.
+
+26) Descrivere l’utilizzo dell’annotazione @PathVariable.
+@PathVariable permette di recuperare un valore direttamente dall'URL.
+
+Ad esempio:
+@GetMapping("/studenti/{id}")
+public Studente getStudente(@PathVariable int id)
+
+Il valore presente al posto di {id} viene assegnato al parametro id.
+
+27) Descrivere l’utilizzo dell’annotazione @RequestParam.
+@RequestParam permette di recuperare un parametro presente nella query string dell'URL.
+
+Ad esempio:
+/studenti?id=10
+può essere recuperato tramite:
+@RequestParam int id
+
+28) Come funziona il protocollo HTTP?
+
+HTTP è un protocollo utilizzato per la comunicazione tra client e server. Il client invia una request contenente metodo, URL e altri eventuali dati; il server elabora la richiesta e restituisce una response contenente status, header ed eventualmente un corpo.
+
+29) Descrivere gli HTTP Status.
+
+Gli HTTP Status Code indicano il risultato di una richiesta. Sono divisi in categorie:
+
+1xx → informazioni;
+2xx → successo, ad esempio 200 OK;
+3xx → reindirizzamento;
+4xx → errore del client, ad esempio 404 Not Found;
+5xx → errore del server, ad esempio 500 Internal Server Error.
+
+30) Qual è lo scopo dei cookie e qual è il loro funzionamento?
+
+I cookie sono piccoli dati memorizzati dal browser e associati a un sito web. Vengono utilizzati per mantenere informazioni tra richieste successive, ad esempio per gestire sessioni, autenticazione e preferenze dell'utente. Il server può inviarli tramite la risposta HTTP e il browser li reinvia nelle richieste successive.

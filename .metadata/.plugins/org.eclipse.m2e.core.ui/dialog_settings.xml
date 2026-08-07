@@ -2,6 +2,8 @@
 <section name="Workbench">
 	<section name="MavenProjectWizardLocationPage">
 		<list key="location">
+			<item value="C:\Users\Simone\eclipse-workspace\Java26_06\prodottoEsercizio\src\main\java\com\prodotto\prodottoEsercizio\controller\ControllerParam.java"/>
+			<item value="C:\Users\Simone\eclipse-workspace\Java26_06\Esercizio1_Esercitazione_07_08"/>
 			<item value="C:\Users\Simone\eclipse-workspace\Java26_06\Esercitazione_03_08\src\main\java\Esercitazione_03_08\main\Main.java"/>
 			<item value="C:\Users\Simone\eclipse-workspace\Java26_06\Esercitazione_03_08\src\main\java\Esercitazione_03_08\beans\Smartphone.java"/>
 			<item value="C:\Users\Simone\eclipse-workspace\Java26_06\Esercitazione_21_07\src\esercizio5\Square.java"/>
@@ -47,28 +49,13 @@
 	</section>
 	<section name="MavenProjectWizardArtifactPage">
 		<list key="groupId">
-			<item value="Esercitazione_04_08"/>
-			<item value="Esercitazione_03_08"/>
-			<item value="Esercitazione_29_07"/>
-			<item value="progettohibernate"/>
-			<item value="primoprogettohibernate"/>
-			<item value="progettoselenium"/>
+			<item value="Esercizio3_Esercitazione_07_08"/>
 		</list>
 		<list key="name">
-			<item value="Esercitazione_04_08"/>
-			<item value="Esercitazione_03_08"/>
-			<item value="Esercitazione_29_07"/>
-			<item value="progettohibernate"/>
-			<item value="primoprogettohibernate"/>
-			<item value="progettoselenium"/>
+			<item value="Esercizio3_Esercitazione_07_08"/>
 		</list>
 		<list key="artifactId">
-			<item value="Esercitazione_04_08"/>
-			<item value="Esercitazione_03_08"/>
-			<item value="Esercitazione_29_07"/>
-			<item value="progettohibernate"/>
-			<item value="primoprogettohibernate"/>
-			<item value="progettoselenium"/>
+			<item value="Esercizio3_Esercitazione_07_08"/>
 		</list>
 		<list key="projectNameTemplate">
 			<item value="[artifactId]"/>

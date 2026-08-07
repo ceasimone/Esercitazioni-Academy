@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<title>Fumetteria - Pannello di test API</title>
+<style>
+	* { box-sizing: border-box; }
+	body {
+		font-family: 'Segoe UI', Arial, sans-serif;
+		background: #f4f1ea;
+		margin: 0;
+		padding: 20px;
+		color: #2b2b2b;
+	}
+	h1 {
+		font-size: 22px;
+		border-bottom: 3px solid #2b2b2b;
+		padding-bottom: 10px;
+	}
+	.tabs {
+		display: flex;
+		gap: 10px;
+		margin: 20px 0;
+	}
+	.tab-btn {
+		padding: 10px 18px;
+		border: 2px solid #2b2b2b;
+		background: #fff;
+		cursor: pointer;
+		font-weight: bold;
+		border-radius: 4px;
+	}
+	.tab-btn.active {
+		background: #2b2b2b;
+		color: #fff;
+	}
+	.tab-content { display: none; }
+	.tab-content.active { display: block; }
+	.grid {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 16px;
+	}
+	.card {
+		background: #fff;
+		border: 1px solid #ccc;
+		border-radius: 6px;
+		padding: 16px;
+	}
+	.card h3 {
+		margin-top: 0;
+		font-size: 15px;
+		text-transform: uppercase;
+		letter-spacing: 0.5px;
+		color: #555;
+	}
+	label {
+		display: block;
+		font-size: 12px;
+		margin-top: 8px;
+		color: #555;
+	}
+	input, select {
+		width: 100%;
+		padding: 6px 8px;
+		margin-top: 2px;
+		border: 1px solid #bbb;
+		border-radius: 4px;
+		font-size: 14px;
+	}
+	button.action {
+		margin-top: 12px;
+		padding: 8px 14px;
+		background: #2b6cb0;
+		color: #fff;
+		border: none;
+		border-radius: 4px;
+		cursor: pointer;
+		font-size: 14px;
+	}
+	button.action:hover { background: #245a94; }
+	button.danger { background: #c0392b; }
+	button.danger:hover { background: #a33025; }
+	#risultato, #risultatoManga {
+		background: #1e1e1e;
+		color: #9cdcfe;
+		padding: 14px;
+		border-radius: 6px;
+		font-family: Consolas, monospace;
+		font-size: 13px;
+		white-space: pre-wrap;
+		max-height: 400px;
+		overflow: auto;
+		margin-top: 20px;
+	}
+	.status-ok { color: #4caf50; font-weight: bold; }
+	.status-err { color: #e57373; font-weight: bold; }
+</style>
+</head>
+<body>
+
+<h1>📚 Fumetteria - Pannello di test API</h1>
+
+<div class="tabs">
+	<button class="tab-btn active" onclick="mostraTab('fumetterie')">Fumetterie</button>
+	<button class="tab-btn" onclick="mostraTab('manga')">Manga</button>
+</div>
+
+<!-- ============ TAB FUMETTERIE ============ -->
+<div id="tab-fumetterie" class="tab-content active">
+	<div class="grid">
+
+		<div class="card">
+			<h3>Crea fumetteria</h3>
+			<label>Nome</label>
+			<input id="f-nome" placeholder="Es. Comic Store">
+			<label>Indirizzo</label>
+			<input id="f-indirizzo" placeholder="Es. Via Roma 1">
+			<button class="action" onclick="creaFumetteria()">Crea</button>
+		</div>
+
+		<div class="card">
+			<h3>Cerca fumetteria</h3>
+			<label>Per ID</label>
+			<input id="f-cerca-id" type="number">
+			<button class="action" onclick="cercaFumetteriaId()">Cerca per ID</button>
+			<label>Per nome</label>
+			<input id="f-cerca-nome">
+			<button class="action" onclick="cercaFumetteriaNome()">Cerca per nome</button>
+			<button class="action" onclick="listaFumetterie()">Elenca tutte</button>
+		</div>
+
+		<div class="card">
+			<h3>Modifica fumetteria</h3>
+			<label>ID</label>
+			<input id="f-mod-id" type="number">
+			<label>Nuovo nome</label>
+			<input id="f-mod-nome">
+			<button class="action" onclick="modificaNomeFumetteria()">Aggiorna nome</button>
+			<label>Nuovo indirizzo</label>
+			<input id="f-mod-indirizzo">
+			<button class="action" onclick="modificaIndirizzoFumetteria()">Aggiorna indirizzo</button>
+		</div>
+
+		<div class="card">
+			<h3>Elimina fumetteria</h3>
+			<label>ID</label>
+			<input id="f-del-id" type="number">
+			<button class="action danger" onclick="cancellaFumetteria()">Elimina</button>
+		</div>
+
+	</div>
+
+	<div id="risultato">Le risposte delle chiamate compariranno qui...</div>
+</div>
+
+<!-- ============ TAB MANGA ============ -->
+<div id="tab-manga" class="tab-content">
+	<div class="grid">
+
+		<div class="card">
+			<h3>Crea manga</h3>
+			<label>Nome</label>
+			<input id="m-nome">
+			<label>Descrizione</label>
+			<input id="m-descrizione">
+			<label>Genere</label>
+			<select id="m-genere">
+				<option>ISEKAI</option><option>AZIONE</option><option>AVVENTURA</option>
+				<option>COMMEDIA</option><option>DRAMMATICO</option><option>FANTASY</option>
+				<option>SCI_FI</option><option>CYBERPUNK</option><option>SLICE_OF_LIFE</option>
+				<option>SPOKON</option><option>MECHA</option><option>HORROR</option>
+				<option>THRILLER</option><option>GIALLO</option><option>SOPRANNATURALE</option>
+				<option>PSICOLOGICO</option><option>ROMANTICO</option><option>HAREM</option>
+				<option>STORICO</option><option>DISTOPICO</option><option>SHONEN</option>
+				<option>SHOJO</option><option>SEINEN</option><option>JOSEI</option>
+				<option>KODOMO</option><option>YAOI</option><option>YURI</option>
+			</select>
+			<label>Capitoli</label>
+			<input id="m-capitoli" type="number">
+			<label>Valutazione</label>
+			<input id="m-valutazione" type="number" step="0.1">
+			<label>Prezzo</label>
+			<input id="m-prezzo" type="number" step="0.01">
+			<button class="action" onclick="creaManga()">Crea</button>
+		</div>
+
+		<div class="card">
+			<h3>Cerca manga</h3>
+			<label>Per ID</label>
+			<input id="m-cerca-id" type="number">
+			<button class="action" onclick="cercaMangaId()">Cerca per ID</button>
+			<label>Per nome</label>
+			<input id="m-cerca-nome">
+			<button class="action" onclick="cercaMangaNome()">Cerca per nome</button>
+			<button class="action" onclick="listaManga()">Elenca tutti</button>
+		</div>
+
+		<div class="card">
+			<h3>Modifica manga</h3>
+			<label>ID</label>
+			<input id="m-mod-id" type="number">
+			<label>Campo</label>
+			<select id="m-mod-campo">
+				<option value="nome">Nome</option>
+				<option value="descrizione">Descrizione</option>
+				<option value="capitoli">Capitoli</option>
+				<option value="valutazione">Valutazione</option>
+				<option value="prezzo">Prezzo</option>
+			</select>
+			<label>Nuovo valore</label>
+			<input id="m-mod-valore">
+			<button class="action" onclick="modificaManga()">Aggiorna</button>
+		</div>
+
+		<div class="card">
+			<h3>Elimina manga</h3>
+			<label>ID</label>
+			<input id="m-del-id" type="number">
+			<button class="action danger" onclick="cancellaManga()">Elimina</button>
+		</div>
+
+	</div>
+
+	<div id="risultatoManga">Le risposte delle chiamate compariranno qui...</div>
+</div>
+
+<script>
+const baseF = "/api/fumetterie";
+const baseM = "/api/manga";
+
+function mostraTab(tab) {
+	document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+	document.querySelectorAll('.tab-btn').forEach(t => t.classList.remove('active'));
+	document.getElementById('tab-' + tab).classList.add('active');
+	event.target.classList.add('active');
+}
+
+async function chiamata(url, metodo, out, body) {
+	const outEl = document.getElementById(out);
+	outEl.textContent = "In corso...";
+	try {
+		const opts = { method: metodo, headers: {} };
+		if (body !== undefined) {
+			opts.headers['Content-Type'] = 'application/json';
+			opts.body = JSON.stringify(body);
+		}
+		const res = await fetch(url, opts);
+		const testo = await res.text();
+		let corpo;
+		try { corpo = JSON.parse(testo); } catch { corpo = testo; }
+
+		const stato = res.ok
+			? `<span class="status-ok">${res.status} OK</span>`
+			: `<span class="status-err">${res.status} ERRORE</span>`;
+
+		outEl.innerHTML = `${metodo} ${url}\n${stato}\n\n${
+			typeof corpo === 'string' ? corpo : JSON.stringify(corpo, null, 2)
+		}`;
+	} catch (e) {
+		outEl.innerHTML = `<span class="status-err">Errore di rete: ${e.message}</span>`;
+	}
+}
+
+// ---------- FUMETTERIE ----------
+function creaFumetteria() {
+	chiamata(baseF, "POST", "risultato", {
+		nome: document.getElementById('f-nome').value,
+		indirizzo: document.getElementById('f-indirizzo').value
+	});
+}
+function cercaFumetteriaId() {
+	chiamata(`${baseF}/${document.getElementById('f-cerca-id').value}`, "GET", "risultato");
+}
+function cercaFumetteriaNome() {
+	chiamata(`${baseF}/nome/${encodeURIComponent(document.getElementById('f-cerca-nome').value)}`, "GET", "risultato");
+}
+function listaFumetterie() {
+	chiamata(baseF, "GET", "risultato");
+}
+function modificaNomeFumetteria() {
+	const id = document.getElementById('f-mod-id').value;
+	const nome = encodeURIComponent(document.getElementById('f-mod-nome').value);
+	chiamata(`${baseF}/${id}/nome?nome=${nome}`, "PUT", "risultato");
+}
+function modificaIndirizzoFumetteria() {
+	const id = document.getElementById('f-mod-id').value;
+	const indirizzo = encodeURIComponent(document.getElementById('f-mod-indirizzo').value);
+	chiamata(`${baseF}/${id}/indirizzo?indirizzo=${indirizzo}`, "PUT", "risultato");
+}
+function cancellaFumetteria() {
+	chiamata(`${baseF}/${document.getElementById('f-del-id').value}`, "DELETE", "risultato");
+}
+
+// ---------- MANGA ----------
+function creaManga() {
+	chiamata(baseM, "POST", "risultatoManga", {
+		nome: document.getElementById('m-nome').value,
+		descrizione: document.getElementById('m-descrizione').value,
+		genere: document.getElementById('m-genere').value,
+		capitoli: Number(document.getElementById('m-capitoli').value),
+		valutazione: Number(document.getElementById('m-valutazione').value),
+		prezzo: Number(document.getElementById('m-prezzo').value)
+	});
+}
+function cercaMangaId() {
+	chiamata(`${baseM}/${document.getElementById('m-cerca-id').value}`, "GET", "risultatoManga");
+}
+function cercaMangaNome() {
+	chiamata(`${baseM}/nome/${encodeURIComponent(document.getElementById('m-cerca-nome').value)}`, "GET", "risultatoManga");
+}
+function listaManga() {
+	chiamata(baseM, "GET", "risultatoManga");
+}
+function modificaManga() {
+	const id = document.getElementById('m-mod-id').value;
+	const campo = document.getElementById('m-mod-campo').value;
+	const valore = encodeURIComponent(document.getElementById('m-mod-valore').value);
+	chiamata(`${baseM}/${id}/${campo}?${campo}=${valore}`, "PUT", "risultatoManga");
+}
+function cancellaManga() {
+	chiamata(`${baseM}/${document.getElementById('m-del-id').value}`, "DELETE", "risultatoManga");
+}
+</script>
+
+</body>
+</html>

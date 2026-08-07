@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<title>Elezioni - Pannello di test API</title>
+<style>
+	* { box-sizing: border-box; }
+	body { font-family: 'Segoe UI', Arial, sans-serif; background: #f4f1ea; margin: 0; padding: 20px; color: #2b2b2b; }
+	h1 { font-size: 22px; border-bottom: 3px solid #2b2b2b; padding-bottom: 10px; }
+	.tabs { display: flex; gap: 10px; margin: 20px 0; }
+	.tab-btn { padding: 10px 18px; border: 2px solid #2b2b2b; background: #fff; cursor: pointer; font-weight: bold; border-radius: 4px; }
+	.tab-btn.active { background: #2b2b2b; color: #fff; }
+	.tab-content { display: none; }
+	.tab-content.active { display: block; }
+	.grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+	.card { background: #fff; border: 1px solid #ccc; border-radius: 6px; padding: 16px; }
+	.card h3 { margin-top: 0; font-size: 15px; text-transform: uppercase; letter-spacing: 0.5px; color: #555; }
+	label { display: block; font-size: 12px; margin-top: 8px; color: #555; }
+	input { width: 100%; padding: 6px 8px; margin-top: 2px; border: 1px solid #bbb; border-radius: 4px; font-size: 14px; }
+	button.action { margin-top: 12px; padding: 8px 14px; background: #2b6cb0; color: #fff; border: none; border-radius: 4px; cursor: pointer; font-size: 14px; }
+	button.action:hover { background: #245a94; }
+	button.danger { background: #c0392b; }
+	button.danger:hover { background: #a33025; }
+	.risultato { background: #1e1e1e; color: #9cdcfe; padding: 14px; border-radius: 6px; font-family: Consolas, monospace; font-size: 13px; white-space: pre-wrap; max-height: 400px; overflow: auto; margin-top: 20px; }
+	.status-ok { color: #4caf50; font-weight: bold; }
+	.status-err { color: #e57373; font-weight: bold; }
+</style>
+</head>
+<body>
+
+<h1>🗳️ Elezioni - Pannello di test API</h1>
+
+<div class="tabs">
+	<button class="tab-btn active" onclick="mostraTab('persone')">Persone</button>
+	<button class="tab-btn" onclick="mostraTab('seggi')">Seggi</button>
+	<button class="tab-btn" onclick="mostraTab('tessere')">Tessere</button>
+</div>
+
+<!-- ============ PERSONE ============ -->
+<div id="tab-persone" class="tab-content active">
+	<div class="grid">
+
+		<div class="card">
+			<h3>Crea persona</h3>
+			<label>Codice fiscale</label>
+			<input id="p-cf" placeholder="Es. RSSMRA80A01H501U">
+			<label>Nome</label>
+			<input id="p-nome">
+			<label>Cognome</label>
+			<input id="p-cognome">
+			<button class="action" onclick="creaPersona()">Crea</button>
+		</div>
+
+		<div class="card">
+			<h3>Cerca persona</h3>
+			<label>Per ID</label>
+			<input id="p-cerca-id" type="number">
+			<button class="action" onclick="cercaPersonaId()">Cerca per ID</button>
+			<label>Per codice fiscale</label>
+			<input id="p-cerca-cf">
+			<button class="action" onclick="cercaPersonaCf()">Cerca per CF</button>
+			<button class="action" onclick="listaPersone()">Elenca tutte</button>
+		</div>
+
+		<div class="card">
+			<h3>Modifica persona</h3>
+			<label>ID</label>
+			<input id="p-mod-id" type="number">
+			<label>Nuovo nome</label>
+			<input id="p-mod-nome">
+			<button class="action" onclick="modificaNomePersona()">Aggiorna nome</button>
+			<label>Nuovo cognome</label>
+			<input id="p-mod-cognome">
+			<button class="action" onclick="modificaCognomePersona()">Aggiorna cognome</button>
+			<label>Nuovo codice fiscale</label>
+			<input id="p-mod-cf">
+			<button class="action" onclick="modificaCfPersona()">Aggiorna CF</button>
+		</div>
+
+		<div class="card">
+			<h3>Elimina persona</h3>
+			<label>ID</label>
+			<input id="p-del-id" type="number">
+			<button class="action danger" onclick="cancellaPersona()">Elimina</button>
+		</div>
+
+	</div>
+	<div id="risultatoPersone" class="risultato">Le risposte compariranno qui...</div>
+</div>
+
+<!-- ============ SEGGI ============ -->
+<div id="tab-seggi" class="tab-content">
+	<div class="grid">
+
+		<div class="card">
+			<h3>Crea seggio</h3>
+			<label>Codice univoco seggio</label>
+			<input id="s-codice" type="number">
+			<label>Sede</label>
+			<input id="s-sede">
+			<label>Città</label>
+			<input id="s-citta">
+			<label>Provincia</label>
+			<input id="s-provincia">
+			<label>Regione</label>
+			<input id="s-regione">
+			<button class="action" onclick="creaSeggio()">Crea</button>
+		</div>
+
+		<div class="card">
+			<h3>Cerca seggio</h3>
+			<label>Per ID</label>
+			<input id="s-cerca-id" type="number">
+			<button class="action" onclick="cercaSeggioId()">Cerca per ID</button>
+			<button class="action" onclick="listaSeggi()">Elenca tutti</button>
+		</div>
+
+		<div class="card">
+			<h3>Modifica seggio</h3>
+			<label>ID</label>
+			<input id="s-mod-id" type="number">
+			<label>Campo</label>
+			<select id="s-mod-campo">
+				<option value="sede">Sede</option>
+				<option value="citta">Città</option>
+				<option value="provincia">Provincia</option>
+				<option value="regione">Regione</option>
+			</select>
+			<label>Nuovo valore</label>
+			<input id="s-mod-valore">
+			<button class="action" onclick="modificaSeggio()">Aggiorna</button>
+		</div>
+
+		<div class="card">
+			<h3>Elimina seggio</h3>
+			<label>ID</label>
+			<input id="s-del-id" type="number">
+			<button class="action danger" onclick="cancellaSeggio()">Elimina</button>
+		</div>
+
+	</div>
+	<div id="risultatoSeggi" class="risultato">Le risposte compariranno qui...</div>
+</div>
+
+<!-- ============ TESSERE ============ -->
+<div id="tab-tessere" class="tab-content">
+	<div class="grid">
+
+		<div class="card">
+			<h3>Crea tessera</h3>
+			<label>Codice univoco tessera</label>
+			<input id="t-codice" type="number">
+			<label>Scadenza</label>
+			<input id="t-scadenza" type="date">
+			<label>ID persona</label>
+			<input id="t-id-persona" type="number">
+			<label>ID seggio</label>
+			<input id="t-id-seggio" type="number">
+			<button class="action" onclick="creaTessera()">Crea</button>
+		</div>
+
+		<div class="card">
+			<h3>Cerca tessera</h3>
+			<label>Per ID</label>
+			<input id="t-cerca-id" type="number">
+			<button class="action" onclick="cercaTesseraId()">Cerca per ID</button>
+			<button class="action" onclick="listaTessere()">Elenca tutte</button>
+		</div>
+
+		<div class="card">
+			<h3>Modifica scadenza</h3>
+			<label>ID tessera</label>
+			<input id="t-mod-id" type="number">
+			<label>Nuova scadenza</label>
+			<input id="t-mod-scadenza" type="date">
+			<button class="action" onclick="modificaScadenzaTessera()">Aggiorna</button>
+		</div>
+
+		<div class="card">
+			<h3>Elimina tessera</h3>
+			<label>ID</label>
+			<input id="t-del-id" type="number">
+			<button class="action danger" onclick="cancellaTessera()">Elimina</button>
+		</div>
+
+	</div>
+	<div id="risultatoTessere" class="risultato">Le risposte compariranno qui...</div>
+</div>
+
+<script>
+const baseP = "/api/persone";
+const baseS = "/api/seggi";
+const baseT = "/api/tessere";
+
+function mostraTab(tab) {
+	document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+	document.querySelectorAll('.tab-btn').forEach(t => t.classList.remove('active'));
+	document.getElementById('tab-' + tab).classList.add('active');
+	event.target.classList.add('active');
+}
+
+async function chiamata(url, metodo, out, body) {
+	const outEl = document.getElementById(out);
+	outEl.textContent = "In corso...";
+	try {
+		const opts = { method: metodo, headers: {} };
+		if (body !== undefined) {
+			opts.headers['Content-Type'] = 'application/json';
+			opts.body = JSON.stringify(body);
+		}
+		const res = await fetch(url, opts);
+		const testo = await res.text();
+		let corpo;
+		try { corpo = JSON.parse(testo); } catch { corpo = testo; }
+		const stato = res.ok
+			? `<span class="status-ok">${res.status} OK</span>`
+			: `<span class="status-err">${res.status} ERRORE</span>`;
+		outEl.innerHTML = `${metodo} ${url}\n${stato}\n\n${typeof corpo === 'string' ? corpo : JSON.stringify(corpo, null, 2)}`;
+	} catch (e) {
+		outEl.innerHTML = `<span class="status-err">Errore di rete: ${e.message}</span>`;
+	}
+}
+
+// ---------- PERSONE ----------
+function creaPersona() {
+	chiamata(baseP, "POST", "risultatoPersone", {
+		codiceFiscale: document.getElementById('p-cf').value,
+		nome: document.getElementById('p-nome').value,
+		cognome: document.getElementById('p-cognome').value
+	});
+}
+function cercaPersonaId() { chiamata(`${baseP}/${document.getElementById('p-cerca-id').value}`, "GET", "risultatoPersone"); }
+function cercaPersonaCf() { chiamata(`${baseP}/cf/${encodeURIComponent(document.getElementById('p-cerca-cf').value)}`, "GET", "risultatoPersone"); }
+function listaPersone() { chiamata(baseP, "GET", "risultatoPersone"); }
+function modificaNomePersona() {
+	const id = document.getElementById('p-mod-id').value;
+	const nome = encodeURIComponent(document.getElementById('p-mod-nome').value);
+	chiamata(`${baseP}/${id}/nome?nome=${nome}`, "PUT", "risultatoPersone");
+}
+function modificaCognomePersona() {
+	const id = document.getElementById('p-mod-id').value;
+	const cognome = encodeURIComponent(document.getElementById('p-mod-cognome').value);
+	chiamata(`${baseP}/${id}/cognome?cognome=${cognome}`, "PUT", "risultatoPersone");
+}
+function modificaCfPersona() {
+	const id = document.getElementById('p-mod-id').value;
+	const cf = encodeURIComponent(document.getElementById('p-mod-cf').value);
+	chiamata(`${baseP}/${id}/codiceFiscale?codiceFiscale=${cf}`, "PUT", "risultatoPersone");
+}
+function cancellaPersona() { chiamata(`${baseP}/${document.getElementById('p-del-id').value}`, "DELETE", "risultatoPersone"); }
+
+// ---------- SEGGI ----------
+function creaSeggio() {
+	chiamata(baseS, "POST", "risultatoSeggi", {
+		codiceUnivocoSeggio: Number(document.getElementById('s-codice').value),
+		sede: document.getElementById('s-sede').value,
+		citta: document.getElementById('s-citta').value,
+		provincia: document.getElementById('s-provincia').value,
+		regione: document.getElementById('s-regione').value
+	});
+}
+function cercaSeggioId() { chiamata(`${baseS}/${document.getElementById('s-cerca-id').value}`, "GET", "risultatoSeggi"); }
+function listaSeggi() { chiamata(baseS, "GET", "risultatoSeggi"); }
+function modificaSeggio() {
+	const id = document.getElementById('s-mod-id').value;
+	const campo = document.getElementById('s-mod-campo').value;
+	const valore = encodeURIComponent(document.getElementById('s-mod-valore').value);
+	chiamata(`${baseS}/${id}/${campo}?${campo}=${valore}`, "PUT", "risultatoSeggi");
+}
+function cancellaSeggio() { chiamata(`${baseS}/${document.getElementById('s-del-id').value}`, "DELETE", "risultatoSeggi"); }
+
+// ---------- TESSERE ----------
+function creaTessera() {
+	chiamata(baseT, "POST", "risultatoTessere", {
+		codiceUnivocoTessera: Number(document.getElementById('t-codice').value),
+		scadenza: document.getElementById('t-scadenza').value,
+		idPersona: Number(document.getElementById('t-id-persona').value),
+		idSeggio: Number(document.getElementById('t-id-seggio').value)
+	});
+}
+function cercaTesseraId() { chiamata(`${baseT}/${document.getElementById('t-cerca-id').value}`, "GET", "risultatoTessere"); }
+function listaTessere() { chiamata(baseT, "GET", "risultatoTessere"); }
+function modificaScadenzaTessera() {
+	const id = document.getElementById('t-mod-id').value;
+	const scadenza = document.getElementById('t-mod-scadenza').value;
+	chiamata(`${baseT}/${id}/scadenza?scadenza=${scadenza}`, "PUT", "risultatoTessere");
+}
+function cancellaTessera() { chiamata(`${baseT}/${document.getElementById('t-del-id').value}`, "DELETE", "risultatoTessere"); }
+</script>
+
+</body>
+</html>

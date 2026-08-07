@@ -5,10 +5,11 @@ import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.Fumetteria.EsercitazioneFumetteria.models.entities.Manga;
+import com.Fumetteria.EsercitazioneFumetteria.models.enums.Genere;
 
 public interface MangaRepo extends JpaRepository<Manga, Integer>{
 	
-	public List<Manga> findAllByGenere();
+	public List<Manga> findAllByGenere(Genere genere);
 	
 	public Manga findByNome(String nome);
 	
@@ -19,16 +20,5 @@ public interface MangaRepo extends JpaRepository<Manga, Integer>{
 	public double findValutazioneById(Integer id);
 	
 	public double findPrezzoById(Integer id);
-	
-	public void updateCapitoliById(int capitoli,Integer id);
-
-	public void updatePrezzoById(double prezzo,Integer id);
-	
-	public void updateDescrizioneById(String descrizione,Integer id);
-	
-	public void updateValutazioneById(double valutazione,Integer id);
-	
-	public void updateNomeById(String nome,Integer id);
-	
 	
 }

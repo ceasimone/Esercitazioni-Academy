@@ -3,6 +3,7 @@ package com.Fumetteria.EsercitazioneFumetteria.models.dto;
 import com.Fumetteria.EsercitazioneFumetteria.models.enums.Genere;
 
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.PositiveOrZero;
 
 public record MangaDTO(
 		
@@ -12,7 +13,7 @@ public record MangaDTO(
 		Genere genere,
 		int capitoli,
 		double valutazione,
-		@NotBlank(message="Inserisci il prezzo")
+		@PositiveOrZero(message="Inserisci il prezzo")
 		double prezzo
 		) {
 
